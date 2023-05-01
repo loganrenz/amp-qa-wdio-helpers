@@ -1,0 +1,41 @@
+{
+  "name": "@apple/amp-qa-wdio-helpers",
+  "version": "0.0.1",
+  "description": "Generic Helpers for WDIO Tests Used by AMP QA",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.apple.com"
+  },
+  "keywords": [],
+  "scripts": {
+    "test": "npx mocha",
+    "lint": "eslint --fix",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "eslint --fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/jasmine": "^4.3.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^14.11.2",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/experimental-utils": "^5.59.1",
+    "@typescript-eslint/scope-manager": "^5.59.1",
+    "@typescript-eslint/typescript-estree": "^5.59.1",
+    "chai": "^4.3.7",
+    "gts": "",
+    "jasmine": "^4.6.0",
+    "mocha": "^10.2.0",
+    "run": "^1.4.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "~4.7.0",
+    "winston": "^3.8.2"
+  }
+}

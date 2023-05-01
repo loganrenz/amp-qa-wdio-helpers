@@ -1,0 +1,20 @@
+{
+  "diff": true,
+  "extension": [".spec.ts"],
+  "require": ["ts-node/register", "mocha", "chai"],
+  "package": "./package.json",
+  "reporter": "spec",
+  "slow": "75",
+  "enable-source-maps": true,
+  "timeout": 240000,
+  "throw-deprecation": true,
+  "ui": "bdd",
+  "recursive": true,
+  "watch-files": [
+    "dist/**/*.js",
+    "test/**/*.js",
+    "test/**/*.spec.ts",
+    "test/**/*.spec.js"
+  ],
+  "watch-ignore": ["lib/vendor"]
+}

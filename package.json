@@ -16,7 +16,8 @@
     "fix": "eslint --fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "prepublish": "npm version patch && git push --tags"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",

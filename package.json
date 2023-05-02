@@ -17,7 +17,7 @@
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "prepublishOnly": "npm run compile && npm version patch"
+    "prepublishOnly": "npm install && npm run compile && npm version patch"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",

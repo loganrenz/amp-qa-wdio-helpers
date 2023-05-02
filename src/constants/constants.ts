@@ -1,6 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import appRoot from 'app-root-path'
+import {glob, globSync} from 'glob'
 
 export const pause = async (timeout: number = 1000 * 30) => {
   return await new Promise(resolve => setTimeout(() => resolve(true), timeout))
@@ -38,3 +39,61 @@ export type CMAPlayerStateChangedEvent = {
   old_state: string
   new_state: string
 }
+
+export class SpecFileEnumCreator {
+  files: string[] = []
+  globber: string = 'test/specs/**/*.spec.ts'
+  splitter: string | undefined
+
+  constructor(globber: string, splitter?: string) {
+    this.globber = globber
+    this.files = globSync(this.globber)
+    this.splitter = splitter
+  }
+
+  get longestStringLength() { return this.files.reduce((a, b) => a.length > b.length ? a : b, ).length }
+
+  propName(file: string, padEnd: number) {
+    const splitFileName = this.splitter ? file.split(this.splitter)[1] : file
+    const p = splitFileName
+        .replace(/\//g, '_SLASH_')
+        .replace(/\-/g, '_')
+        .replace(/\.spec\.ts/g, '')
+        .toUpperCase()
+        .padEnd(padEnd, ' ')
+    return p
+  }
+
+  toString() {
+    const padding = this.longestStringLength
+    const output = 'export enum SpecFiles { \n' + this.files.map(file => `\t${this.propName(file, padding)} = "${file}"`).join(',\n') + '\n' + '}'
+    return output
+  }
+
+  writeToFile(outputPath: string) {
+    fs.writeFileSync(outputPath, this.toString(), 'utf8')
+  }
+}
+
+  
+
+//const propName = (file: string, padEnd: number) => {
+//    const p = file
+//        .split('test/specs/')[1]
+//        .replace(/\//g, '_SLASH_')
+//        .replace(/\-/g, '_')
+//        .replace(/\.spec\.ts/g, '')
+//        .toUpperCase()
+//        .padEnd(padEnd, ' ')
+//    return p
+//}
+//
+//const outputPath = path.join(ROOT_DIR, 'test', 'spec-file-enum.ts')
+//const specDir = 'test/specs'
+//glob('**/*.spec.ts', { cwd: specDir, absolute: true }).then(files => {
+//    const padding = longestStringLength(files.map(f => propName(f, 0)))
+//    const output = 'export enum SpecFiles { \n' + files.map(file => `\t${propName(file, padding)} = "${file}"`).join(',\n') + '\n' + '}'
+//    fs.writeFileSync(outputPath, output, 'utf8')
+//})
+//
+//}

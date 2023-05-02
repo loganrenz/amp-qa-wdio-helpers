@@ -30,6 +30,7 @@
     "@typescript-eslint/scope-manager": "^5.59.1",
     "@typescript-eslint/typescript-estree": "^5.59.1",
     "chai": "^4.3.7",
+    "glob": "^10.2.2",
     "gts": "",
     "jasmine": "^4.6.0",
     "mocha": "^10.2.0",

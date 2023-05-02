@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig-google.json",
+  "extends": "./tsconfig-google.json",
   "ts-node": {
     "transpileOnly": true,
     "require": ["tsconfig-paths/register", "mocha", "chai", "./src/index.ts"]

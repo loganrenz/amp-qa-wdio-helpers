@@ -41,7 +41,7 @@
     "winston": "^3.8.2"
   },
   "dependencies": {
-    "@wdio/logger": "^8.6.6",
+    "@wdio/logger": "^7.26.0",
     "app-root-path": "^3.1.0",
     "loglevel-plugin-prefix": "^0.8.4"
   }

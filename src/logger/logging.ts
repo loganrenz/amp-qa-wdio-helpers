@@ -18,6 +18,9 @@ const colors = {
 
 export class WithLogging {
     _logger?: Logger = undefined
+    _name?: string = undefined
+    get name() { return this._name || this.constructor.name }
+    set name(name: string) { this._name = name}
 
     timestampFormatters = {
         localeTimeString: (date: Date) => date.toLocaleTimeString(),
@@ -47,4 +50,10 @@ export class WithLogging {
             return newLogger
         }
     }
+}
+
+export const getWdioLogger = (name: string): Logger => {
+  const logCreator = new WithLogging()
+  logCreator.name = name
+  return logCreator.logger
 }

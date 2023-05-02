@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import * as appRoot from 'app-root-path'
+import appRoot from 'app-root-path'
 
 export const pause = async (timeout: number = 1000 * 30) => {
   return await new Promise(resolve => setTimeout(() => resolve(true), timeout))

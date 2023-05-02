@@ -1,6 +1,6 @@
 {
   "name": "@apple/amp-qa-wdio-helpers",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Generic Helpers for WDIO Tests Used by AMP QA",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",

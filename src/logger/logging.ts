@@ -10,6 +10,9 @@ export class Logging {
     winston.transports.Console.level = this.globalLogLevel
     Logging.allLoggers.forEach(logger => {
       logger.level = this.globalLogLevel
+      logger.transports.forEach(transport => {
+        transport.level = this.globalLogLevel
+      })
     })
   }
   static allLoggers: winston.Logger[] = []

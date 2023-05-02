@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs'
+import * as appRoot from 'app-root-path'
 
 export const pause = async (timeout: number = 1000 * 30) => {
   return await new Promise(resolve => setTimeout(() => resolve(true), timeout))
@@ -9,7 +10,7 @@ export const Seconds = (num: number) => num * 1000
 export const Minutes = (num: number) => num * 1000 * 60
 export const Hours = (num: number) => num * 1000 * 60 * 60
 
-export const ROOT_DIR = path.join(__dirname, '..')
+export const ROOT_DIR = appRoot.path  
 export const dirExists = (dir: string) => fs.existsSync(dir)
 export const resultsDir = path.join(ROOT_DIR, 'results')
 

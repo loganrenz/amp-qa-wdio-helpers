@@ -74,26 +74,3 @@ export class SpecFileEnumCreator {
     fs.writeFileSync(outputPath, this.toString(), 'utf8')
   }
 }
-
-  
-
-//const propName = (file: string, padEnd: number) => {
-//    const p = file
-//        .split('test/specs/')[1]
-//        .replace(/\//g, '_SLASH_')
-//        .replace(/\-/g, '_')
-//        .replace(/\.spec\.ts/g, '')
-//        .toUpperCase()
-//        .padEnd(padEnd, ' ')
-//    return p
-//}
-//
-//const outputPath = path.join(ROOT_DIR, 'test', 'spec-file-enum.ts')
-//const specDir = 'test/specs'
-//glob('**/*.spec.ts', { cwd: specDir, absolute: true }).then(files => {
-//    const padding = longestStringLength(files.map(f => propName(f, 0)))
-//    const output = 'export enum SpecFiles { \n' + files.map(file => `\t${propName(file, padding)} = "${file}"`).join(',\n') + '\n' + '}'
-//    fs.writeFileSync(outputPath, output, 'utf8')
-//})
-//
-//}

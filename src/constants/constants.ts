@@ -51,7 +51,7 @@ export class SpecFileEnumCreator {
     this.splitter = splitter
   }
 
-  get longestStringLength() { return this.files.reduce((a, b) => a.length > b.length ? a : b, ).length }
+  get longestStringLength() { return this.files.map(f => this.propName(f,0)).reduce((a, b) => a.length > b.length ? a : b, ).length }
 
   propName(file: string, padEnd: number) {
     const splitFileName = this.splitter ? file.split(this.splitter)[1] : file

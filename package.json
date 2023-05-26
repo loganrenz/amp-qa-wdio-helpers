@@ -1,6 +1,6 @@
 {
   "name": "@apple/amp-qa-wdio-helpers",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Generic Helpers for WDIO Tests Used by AMP QA",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -42,7 +42,6 @@
     "winston": "^3.8.2"
   },
   "dependencies": {
-    
     "app-root-path": "^3.1.0",
     "loglevel-plugin-prefix": "^0.8.4"
   }
